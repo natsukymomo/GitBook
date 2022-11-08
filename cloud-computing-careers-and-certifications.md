@@ -107,7 +107,7 @@ AWS -> Azure -> Google -> Alibaba -> IBM ****&#x20;
   * many roles for contribution and practice
   * &#x20;25% of time dedicated to learning
 
-\#FutureCloud
+**#FutureCloud**
 
 * Data Lakes -> Relational and Spark
 * IoT
