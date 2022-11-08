@@ -4,14 +4,14 @@ description: Lynn Langit - LinkedInLearni
 
 # Cloud Computing Careers and Certifications
 
-#### **#Role**
+### **#Role**
 
 * IT Pro  -> Network professional / Help desk -> DevOps/Security
 * Developer -> Application / Database Developer
 * Analyst -> Business Analyst / Data Scientist -> ML Developer
 * <mark style="color:yellow;">**Architect**</mark> -> Solution Architect / System Architect
 
-#### &#x20;**#ITProSkills**
+### &#x20;**#ITProSkills**
 
 * Operation
   *   Visualization -> cloud VM / load balance / container(docker) /&#x20;
@@ -38,7 +38,7 @@ description: Lynn Langit - LinkedInLearni
 
 
 
-#### &#x20;**#DeveloperSkills**
+### &#x20;**#DeveloperSkills**
 
 * Programming
   * Application and API development
@@ -66,7 +66,7 @@ description: Lynn Langit - LinkedInLearni
   * Vender cloud CLI and tools
   * Smart editor with add-ins(VScode) or <mark style="color:yellow;">online</mark>
 
-#### &#x20;**#Certifications**
+### &#x20;**#Certifications**
 
 ****[https://www.skillsoft.com/blog/15-top-paying-it-certifications-of-2022](https://www.skillsoft.com/blog/15-top-paying-it-certifications-of-2022)
 
@@ -96,7 +96,7 @@ AWS -> Azure -> Google -> Alibaba -> IBM ****&#x20;
   * Data visualization -> Tableau / looker(GCP)
   * <mark style="color:yellow;">**Data lakehouses -> Databricks: Apache Spark / SnowflakeDB**</mark>
 
-#### **#CloudCareerPath**
+### **#CloudCareerPath**
 
 * IT Pro -> Cloud DevOps / Cloud Security Expert&#x20;
 * Developer -> Cloud App Developer / Could Mobile or IoT App Developer /                                  Cloud Data Pipeline Developer with ML / Cloud Data Scientist
@@ -107,7 +107,7 @@ AWS -> Azure -> Google -> Alibaba -> IBM ****&#x20;
   * many roles for contribution and practice
   * &#x20;25% of time dedicated to learning
 
-#### **#FutureCloud**
+### **#FutureCloud**
 
 * Data Lakes -> Relational and Spark
 * IoT
