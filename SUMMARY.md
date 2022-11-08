@@ -4,4 +4,4 @@
 
 ## Azure
 
-* [Azure](azure/azure.md)
+* [Microsoft Azure Fundamentals (AZ-900)](azure/microsoft-azure-fundamentals-az-900.md)
