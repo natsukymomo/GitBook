@@ -98,4 +98,24 @@ AWS -> Azure -> Google -> Alibaba -> IBM ****&#x20;
 
 **#CloudCareerPath**
 
-****
+* IT Pro -> Cloud DevOps / Cloud Security Expert&#x20;
+* Developer -> Cloud App Developer / Could Mobile or IoT App Developer /                                  Cloud Data Pipeline Developer with ML / Cloud Data Scientist
+* Analyst -> Cloud Data Pipeline Developer with ML / Cloud Data Scientist with ML
+* Architect -> Cloud Architect -> 4-year degree
+  * continual learning
+  * pattern application
+  * many roles for contribution and practice
+  * &#x20;25% of time dedicated to learning
+
+\#FutureCloud
+
+* Data Lakes -> Relational and Spark
+* IoT
+* APIs -> Lambda and functional programming
+* ML with DNN -> scikit-learn / google colabs / Khan Academy / Kaggle Competitions / TensorFlow
+* &#x20;Cost Management
+
+
+
+&#x20;               &#x20;
+
