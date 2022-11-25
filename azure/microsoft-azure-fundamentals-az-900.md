@@ -26,14 +26,12 @@ description: certification - fundamental
 
     * responsibilities shared between _cloud provider_ and the _customer_
 
-    __
-
-    <figure><img src="../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (25).png" alt=""><figcaption><p>share responsibility model</p></figcaption></figure>
 *   **COULD MODELS ->** the _deployment_ _type_ of cloud resources
 
     * <mark style="color:yellow;">availability</mark> is a key difference between public and private clouds
-    * _hybrid cloud_ -> uses both public and private clouds in an inter-connected environment           <mark style="color:yellow;">flexibility / security</mark>
-    * _multi could ->_ use multiple public cloud providers -> different feature / migration                                    <mark style="color:red;">NEED TO</mark> deal with tow public cloud providers / manage resources & security
+    * _hybrid cloud_ -> uses both public and private clouds in an inter-connected environment -> <mark style="color:yellow;">flexibility / security</mark>
+    * _multi could ->_ use multiple public cloud providers -> different feature / migration                                    <mark style="color:red;">NEED TO</mark> deal with two public cloud providers / manage resources & security
     * tool manage cloud -> _Azure Arc_
     * _VM -> Azure VM ->_ run VM workloads in Azure with seamless integration & scalability
 
@@ -69,7 +67,7 @@ _Operational expenditure (**OpEx**)_: spending money on services or products ove
    1. vertical scaling: vertically scale up/down to add more <mark style="color:yellow;">CPUs or RAM</mark> to the VM <mark style="color:yellow;">强化一台VM</mark>
    2. horizontal scaling -> horizontal scale out/in (either automatically or manually) to add <mark style="color:yellow;">additional VMs or containers 加VM</mark>
 3. **RELIABILITY** -> the ability of a system to recover from failures and continue to function
-   1. cloud decentralized design -> <mark style="color:yellow;">reliable and resilient</mark>(弹性的) infrastructure
+   1. cloud decentralized design -> <mark style="color:yellow;">reliable and resilient</mark> infrastructure
    2. deploy in regions around the world, always running
    3. self-designed auto shift / cloud auto shift
 4. **PREDICTABILITY**:&#x20;
@@ -94,32 +92,33 @@ _Operational expenditure (**OpEx**)_: spending money on services or products ove
       * Deploy resources based on a preconfigured template, removing the need for manual configuration.
       * Monitor the health of resources and automatically replace failing resources.
       * Receive automatic alerts based on configured metrics, so you’re aware of performance in real time.
-   2. management in the cloud -> by using:
-      * Through a web portal.
-      * Using a command line interface.
-      * Using APIs.
-      * Using PowerShell.
+   2.  management in the cloud -> by using:
 
-###
+       * Through a web portal.
+       * Using a command line interface.
+       * Using APIs.
+       * Using PowerShell.
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
 
 ### #DescribeCloudServiceTypes
 
 
 
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>shared responsibility model</p></figcaption></figure>
+
 1. &#x20;IaaS - Infrastructure as a Service 只租硬件
    * most flexible / maximum control of your cloud resources
-   * cloud provider is responsible for maintaining the hardware, network connectivity (to the internet), and physical security.
+   * cloud provider is responsible for maintaining the <mark style="color:yellow;">hardware, network connectivity (to the internet), and physical security.</mark>
    * You’re responsible for everything else: operating system installation, configuration, and maintenance; network configuration; database and storage configuration; and so on.
    * scenarios
-     * Lift-and-shift migration: You’re standing up cloud resources similar to your on-premise datacenter, and then simply moving the things running on-premise to running on the IaaS infrastructure.
-     * Testing and development: You have established configurations for development and test environments that you need to rapidly replicate. You can stand up or shut down the different environments rapidly with an IaaS structure, while maintaining complete control.
+     * Lift-and-shift migration: on-premise -> cloud
+     * Testing and development: You have established configurations for development and test environments that you need to rapidly replicate.&#x20;
 2. PaaS - Platform as a Service
    * middle ground between IaaS and SaaS
    * the cloud provider maintains the physical infrastructure, physical security, and connection to the internet, <mark style="color:yellow;">operating systems, middleware, development tools, and business intelligence services that make up a cloud solution.</mark> (provide a complete development environment without the headache of maintaining all the development infrastructure.)
    * scenarios:
-     * Development framework: PaaS provides a framework that developers can build upon to develop or customize cloud-based applications. Similar to the way you create an Excel macro, PaaS lets developers create applications using built-in software components. Cloud features such as scalability, high-availability, and multi-tenant capability are included, reducing the amount of coding that developers must do.
+     * Development framework: PaaS provides a framework that developers can build upon to develop or customize cloud-based applications. Cloud features such as scalability, high-availability, and multi-tenant capability are included, reducing the amount of coding that developers must do.
      * Analytics or business intelligence: Tools provided as a service with PaaS allow organizations to analyze and mine their data, finding insights and patterns and predicting outcomes to improve forecasting, product design decisions, investment returns, and other business decisions.
 3. SaaS - Software as a Service
    * most complete cloud service model from a product perspective
@@ -132,15 +131,9 @@ _Operational expenditure (**OpEx**)_: spending money on services or products ove
 {% endtab %}
 
 {% tab title="Azure Architecture and Services" %}
+### #Azure
 
-{% endtab %}
-{% endtabs %}
-
-###
-
-## Azure
-
-1.  Azure: cloud computing platform - IaaS/ PaaS/ SaaS
+1.  **AZURE**: cloud computing platform - IaaS/ PaaS/ SaaS
 
     1. Virtual Machine running on the cloud - complete control
        1. create virtual machines from scratch
@@ -153,39 +146,70 @@ _Operational expenditure (**OpEx**)_: spending money on services or products ove
        1. provide a scalable hosting platform where developers can create web based applications using popular development frameworks
        2. easily deploy, operate, and scale your apps in a fully managed env
     5. Azure functions: event driven, serverless applications with no coding
-    6. Azure container instances and Azure Kubemetes services: deploy containerized applications with fully managed services
+    6. Azure container instances and Azure Kubernetes services: deploy containerized applications with fully managed services
     7. Azure offers a choice of fully managed relational and in-memory databases, spanning proprietary, and open source engines
        1. Microsoft Cosmos DB support several popular NoSQL APIs.
     8. Azure AI and ML services: building, training, and deploying machine learning models
     9. Azure regional data center: distribute your application globally
-    10. Azure portal: create, configure and control all your services and resources
+    10. Azure portal: create, configure and control all your services and resources&#x20;
 
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/889b393a-faad-4a9b-b320-8b6aca7999c1/Untitled.png)
 
-    your company might use a single Azure account for your business and separate subscriptions for development, marketing, and sales departments.
 
-## Architecture and services
+    <figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption><p>your company might use a single Azure account for your business and separate subscriptions for development, marketing, and sales departments.</p></figcaption></figure>
+2. **PHYSICAL INFRASTRUCTURE**
+   1. datacenter - around the world - grouped into Azure Regions/Azure Availability Zones → resiliency and reliability
+   2. region: a geographical area on the planet contains at least one datacenter.&#x20;
+      * Some services or virtual machine (VM) features are only available in certain regions, such as specific VM sizes or storage types. There are also some global Azure services that don't require you to select a particular region, such as Azure Active Directory, Azure Traffic Manager, and Azure DNS.
+   3.  Availability zones : physically separate datacenters within an Azure region.&#x20;
 
-1. physical infrastructure
-   1. data center - around the world - individual aren’t directly accessible
-   2. grouped into Azure Regions/Azure Availability Zones → resiliency and reliability
-      1. region: Some services or virtual machine (VM) features are only available in certain regions, such as specific VM sizes or storage types. There are also some global Azure services that don't require you to select a particular region, such as Azure Active Directory, Azure Traffic Manager, and Azure DNS.
-      2. Availability zones : physically separate datacenters within an Azure region. → isolation boundary → If one zone goes down, the other continues working. Availability zones are connected through high-speed, private fiber-optic networks.
-   3. You can use availability zones to run mission-critical applications and build high-availability into your application architecture by co-locating your compute, storage, networking, and data resources within an availability zone and replicating in other availability zones
-   4. Availability zones are primarily for VMs, managed disks, load balancers, and SQL databases. Azure services that support availability zones fall into three categories
+       * isolation boundary → independent power, cooling, networking
+       * availability zones are connected through high-speed, private fiber-optic networks.
+       * minimum of 3 separate AZ in AZ-enabled regions -> resiliency
+
+       <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+   4. You can use availability zones to run mission-critical applications and build high-availability into your application architecture by co-locating your compute, storage, networking, and data resources within an availability zone and replicating in other availability zones
+   5. Availability zones are primarily for VMs, managed disks, load balancers, and SQL databases. Azure services that support availability zones fall into three categories
       * Zonal services: You pin the resource to a specific zone (for example, VMs, managed disks, IP addresses).
       * Zone-redundant services: The platform replicates automatically across zones (for example, zone-redundant storage, SQL Database).
       * Non-regional services: Services are always available from Azure geographies and are resilient to zone-wide outages as well as region-wide outages.
-   5.  region pairs: Most Azure regions are paired with another region within the same geography (such as US, Europe, or Asia) at least 300 miles away
+   6. region pairs: Most Azure regions are paired with another region within the same geography (such as US, Europe, or Asia) at least 300 miles away
+      1. allows for the replication of resources across a geography that helps reduce the likelihood of interruptions because of events such as natural disasters, civil unrest, power outages, or physical network outages that affect an entire region.
+      2. advantage:
+3.
 
-       1. allows for the replication of resources across a geography that helps reduce the likelihood of interruptions because of events such as natural disasters, civil unrest, power outages, or physical network outages that affect an entire region.
-       2. advantage:
+&#x20;
+
+```bash
+#powerShell CLI
+pwsh
+#bash CLI
+bash
+
+az version
+az upgrade
+#enter interactive mode - Azure CLI
+az interactive
+version
+upgrade
+exit
+```
+{% endtab %}
+{% endtabs %}
+
+
+
+##
+
+1.
+   1.
+
+       1.
           * If an extensive Azure outage occurs, one region out of every pair is prioritized to make sure at least one is restored as quickly as possible for applications hosted in that region pair.
           * Planned Azure updates are rolled out to paired regions one region at a time to minimize downtime and risk of application outage.
           * Data continues to reside within the same geography as its pair (except for Brazil South) for tax- and law-enforcement jurisdiction purposes.
 
        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9c29919b-8ef7-4cf7-8245-798d4267a669/Untitled.png)
-   6. **Sovereign Regions:** instances of Azure that are isolated from the main instance of Azure.
+   2. **Sovereign Regions:** instances of Azure that are isolated from the main instance of Azure.
       * US DoD Central, US Gov Virginia, US Gov Iowa and more: These regions are physical and logical network-isolated instances of Azure for U.S. government agencies and partners. These datacenters are operated by screened U.S. personnel and include additional compliance certifications.
       * China East, China North, and more: These regions are available through a unique partnership between Microsoft and 21Vianet, whereby Microsoft doesn't directly maintain the datacenters.
 2. management infrastructure

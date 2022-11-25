@@ -1,5 +1,7 @@
 # DA terms
 
+
+
 &#x20;
 
 | voc            | definition | example |
@@ -22,3 +24,6 @@
 | prevalent      | 普遍的        |         |
 | endorsing      | 承认背书       |         |
 | coherent       | 连贯的        |         |
+| resilient      | 有弹性的       |         |
+| rack           | 架子         |         |
+|                |            |         |
