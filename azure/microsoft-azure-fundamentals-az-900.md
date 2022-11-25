@@ -12,108 +12,131 @@ description: certification - fundamental
 
 <mark style="color:yellow;">**Describe Azure management and governance 30-35%**</mark>
 
-****
+{% tabs %}
+{% tab title="cloud concepts" %}
+### **#DescribeCloudComputing**
 
-### **#CLOUDCOMUPTING**
+****
 
 * **COULD COMPUTING** -> delivery of <mark style="color:yellow;">computing services</mark> over the internet
   * _common IT infrastructure_ -> VM, storage, DB, and networking
   * _cloud services_ ->  IoT, ML, AI
   * Pros -> <mark style="color:yellow;">not constrained by physical infrastructure</mark> -> increase/decrease
-* **SHARE RESPONSIBILITY MODEL**
-  * responsibilities shared between _cloud provider_ and the _customer_
+*   **SHARE RESPONSIBILITY MODEL**
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+    * responsibilities shared between _cloud provider_ and the _customer_
+
+    __
+
+    <figure><img src="../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
+*   **COULD MODELS ->** the _deployment_ _type_ of cloud resources
+
+    * <mark style="color:yellow;">availability</mark> is a key difference between public and private clouds
+    * _hybrid cloud_ -> uses both public and private clouds in an inter-connected environment           <mark style="color:yellow;">flexibility / security</mark>
+    * _multi could ->_ use multiple public cloud providers -> different feature / migration                                    <mark style="color:red;">NEED TO</mark> deal with tow public cloud providers / manage resources & security
+    * tool manage cloud -> _Azure Arc_
+    * _VM -> Azure VM ->_ run VM workloads in Azure with seamless integration & scalability
+
+    | Basic Cloud                                                           | Private Cloud                                                      | Hybrid Cloud                                                      |
+    | --------------------------------------------------------------------- | ------------------------------------------------------------------ | ----------------------------------------------------------------- |
+    | No capital expenditures to scale up                                   | Organizations have complete control over resources and security    | Provides the most flexibility                                     |
+    | Applications can be quickly provisioned and deprovisioned             | Data is not collocated with other organizations’ data              | Organizations determine where to run their applications           |
+    | Organizations pay only for what they use                              | Hardware must be purchased for startup and maintenance             | Organizations control security, compliance, or legal requirements |
+    | Organizations don’t have complete control over resources and security | Organizations are responsible for hardware maintenance and updates |                                                                   |
 
 
-
-\*SaaS software as a service
-
-b. IaaS - Infrastructure as a Service 只租硬件
-
-* most flexible / maximum control of your cloud resources
-* cloud provider is responsible for maintaining the hardware, network connectivity (to the internet), and physical security.
-* You’re responsible for everything else: operating system installation, configuration, and maintenance; network configuration; database and storage configuration; and so on.
-* scenarios
-  * Lift-and-shift migration: You’re standing up cloud resources similar to your on-prem datacenter, and then simply moving the things running on-prem to running on the IaaS infrastructure.
-  * Testing and development: You have established configurations for development and test environments that you need to rapidly replicate. You can stand up or shut down the different environments rapidly with an IaaS structure, while maintaining complete control.
-
-c. PaaS - Platform as a Service
-
-* middle ground between renting space in a datacenter (infrastructure as a service) and paying for a complete and deployed solution (software as a service)
-* the cloud provider maintains the physical infrastructure, physical security, and connection to the internet, operating systems, middleware, development tools, and business intelligence services that make up a cloud solution.
-* provide a complete development environment without the headache of maintaining all the development infrastructure.
-* scenarios:
-  * Development framework: PaaS provides a framework that developers can build upon to develop or customize cloud-based applications. Similar to the way you create an Excel macro, PaaS lets developers create applications using built-in software components. Cloud features such as scalability, high-availability, and multi-tenant capability are included, reducing the amount of coding that developers must do.
-  * Analytics or business intelligence: Tools provided as a service with PaaS allow organizations to analyze and mine their data, finding insights and patterns and predicting outcomes to improve forecasting, product design decisions, investment returns, and other business decisions.
-
-d. SaaS - Software as a Service
-
-* most complete cloud service model from a product perspective
-* renting or using a fully developed application. Email, financial software, messaging applications, and connectivity software are all common examples of a SaaS implementation.
-* least flexible, easiest to get up and running, requires the least amount of technical knowledge or expertise to fully employ.
-* scenarios:
-  * Email and messaging.
-  * Business productivity applications.
-  * Finance and expense tracking.
-* **COULD MODELS ->** the _deployment_ _type_ of cloud resources
-  * <mark style="color:yellow;">availability</mark> is a key difference between public and private clouds
-  * _hybrid cloud_ -> uses both public and private clouds in an inter-connected environment           <mark style="color:yellow;">flexibility / security</mark>
-  * _multi could ->_ use multiple public cloud providers -> different feature / migration                                    <mark style="color:red;">NEED TO</mark> deal with tow public cloud providers / manage resources & security
-  * tool manage cloud -> _Azure Arc_
-  * _VM -> Azure VM ->_ run VM workloads in Azure with seamless integration & scalability
-
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 _Capital expenditure (**CapEx**)_: a one-time, up-front expenditure to purchase or secure tangible(有形的) resources <mark style="color:yellow;">买</mark>
 
-_Operational expenditure (**OpEx**)_: spending money on services or products over time <mark style="color:yellow;">租</mark>
-
-\-> cloud computing
+_Operational expenditure (**OpEx**)_: spending money on services or products over time <mark style="color:yellow;">租</mark> -> cloud computing
 {% endhint %}
 
 * **CONSUMPTION-BASED MODEL**
   * No upfront costs <mark style="color:yellow;">不预付</mark> / No need to purchase and manage costly infrastructure <mark style="color:yellow;">不买硬件</mark> / pay fo more resources when they're needed <mark style="color:yellow;">只付用的</mark> / stop paying for resources that are no longer needed <mark style="color:yellow;">不用不付</mark>&#x20;
-  * Plan and manage your operating costs / Run your infrastructure more efficiently / Scale as your business needs change.
+  * Plan and manage your operating costs / Run your infrastructure more efficiently / Scale as your business needs change
 
-1.
-2. high availability - uptime
-   1. SLA: service-level agreements as % 99.5%
-3. Scalability: the ability to adjust resources to meet demand.
-   1. vertical scaling: vertically scale up/down to add more CPUs or RAM to the virtual machine
-   2. horizontal scaling:
-      1. if you suddenly experienced a steep jump in demand, your deployed resources could be scaled out (either automatically or manually). For example, you could add additional virtual machines or containers, scaling out.
-      2. if there was a significant drop in demand, deployed resources could be scaled in (either automatically or manually), scaling in.
-4. Reliability: the ability of a system to recover from failures and continue to function → cloud decentralized design:
-   1. reliable and resilient(弹性的) infrastructure
-   2. deploy in regions around the world
-   3. one region has catastrophic event, other region still up and running
-   4. self-designed auto shift/ cloud auto shift
-5. Predictability: influenced by Azure well-architected framework
-   1. performance predictability: predicting the resources needed to deliver a positive experience for your customers
-      1. Autoscaling, load balancing, and high availability
-   2. cost predictability: predicting or forecasting the cost of the cloud spend
+
+
+### #DescribeBenefitsUsingCloud
+
+
+
+1.  **HIGH AVAILABILITY** -> uptime / downtime&#x20;
+
+    SLA: service-level agreements as %(eg 99.9%)
+2. **SCALABILITY** -> adjust resources to meet demand.
+   1. vertical scaling: vertically scale up/down to add more <mark style="color:yellow;">CPUs or RAM</mark> to the VM <mark style="color:yellow;">强化一台VM</mark>
+   2. horizontal scaling -> horizontal scale out/in (either automatically or manually) to add <mark style="color:yellow;">additional VMs or containers 加VM</mark>
+3. **RELIABILITY** -> the ability of a system to recover from failures and continue to function
+   1. cloud decentralized design -> <mark style="color:yellow;">reliable and resilient</mark>(弹性的) infrastructure
+   2. deploy in regions around the world, always running
+   3. self-designed auto shift / cloud auto shift
+4. **PREDICTABILITY**:&#x20;
+   1. performance predictability: predicting the <mark style="color:yellow;">resources needed to deliver a positive experience</mark> for your customers -> autoscaling, load balancing, and high availability
+   2. cost predictability: predicting or forecasting the <mark style="color:yellow;">cost of the cloud spend</mark>
       1. track your resource use in real time
       2. monitor resources to ensure that you’re using them in the most efficient way
       3. apply data analytics to find patterns and trends that help better plan resource deployments
       4. predict future cost
       5. tools: Total Cost of Ownership (TCO) or Pricing Calculator
-6. Security and governance in cloud
-   1. Things like set templates help ensure that all your deployed resources meet corporate standards and government regulatory requirements
-   2. you can update all your deployed resources to new standards as standards change.
-   3. Depending on your operating model, software patches and updates may also automatically be applied, which helps with both governance and security.
-7. Manageability
-8. management of the cloud
-   * Automatically scale resource deployment based on need.
-   * Deploy resources based on a preconfigured template, removing the need for manual configuration.
-   * Monitor the health of resources and automatically replace failing resources.
-   * Receive automatic alerts based on configured metrics, so you’re aware of performance in real time.
-9. management in the cloud
-   * Through a web portal.
-   * Using a command line interface.
-   * Using APIs.
-   * Using PowerShell.
+5. **GOVERNANCE AND COMPLIANCE**
+   1. set templates help ensure that all your deployed resources meet corporate standards and government regulatory requirements
+   2. update all your deployed resources to new standards as standards change.
+   3. cloud-based auditing helps flag any resource that’s out of compliance with your corporate standards and provides mitigation strategies.
+6. **SECURITY**
+   1. self maximum control of security : IaaS
+   2. patches and maintenance taken care auto: PaaS / SaaS
+   3. cloud provider handle DDoS...
+7. **MANAGEABILITY <- MAJOR BENEFIT**
+   1. management of the cloud -> you can:
+      * Automatically scale resource deployment based on need.
+      * Deploy resources based on a preconfigured template, removing the need for manual configuration.
+      * Monitor the health of resources and automatically replace failing resources.
+      * Receive automatic alerts based on configured metrics, so you’re aware of performance in real time.
+   2. management in the cloud -> by using:
+      * Through a web portal.
+      * Using a command line interface.
+      * Using APIs.
+      * Using PowerShell.
+
+###
+
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+### #DescribeCloudServiceTypes
+
+
+
+1. &#x20;IaaS - Infrastructure as a Service 只租硬件
+   * most flexible / maximum control of your cloud resources
+   * cloud provider is responsible for maintaining the hardware, network connectivity (to the internet), and physical security.
+   * You’re responsible for everything else: operating system installation, configuration, and maintenance; network configuration; database and storage configuration; and so on.
+   * scenarios
+     * Lift-and-shift migration: You’re standing up cloud resources similar to your on-premise datacenter, and then simply moving the things running on-premise to running on the IaaS infrastructure.
+     * Testing and development: You have established configurations for development and test environments that you need to rapidly replicate. You can stand up or shut down the different environments rapidly with an IaaS structure, while maintaining complete control.
+2. PaaS - Platform as a Service
+   * middle ground between IaaS and SaaS
+   * the cloud provider maintains the physical infrastructure, physical security, and connection to the internet, <mark style="color:yellow;">operating systems, middleware, development tools, and business intelligence services that make up a cloud solution.</mark> (provide a complete development environment without the headache of maintaining all the development infrastructure.)
+   * scenarios:
+     * Development framework: PaaS provides a framework that developers can build upon to develop or customize cloud-based applications. Similar to the way you create an Excel macro, PaaS lets developers create applications using built-in software components. Cloud features such as scalability, high-availability, and multi-tenant capability are included, reducing the amount of coding that developers must do.
+     * Analytics or business intelligence: Tools provided as a service with PaaS allow organizations to analyze and mine their data, finding insights and patterns and predicting outcomes to improve forecasting, product design decisions, investment returns, and other business decisions.
+3. SaaS - Software as a Service
+   * most complete cloud service model from a product perspective
+   * renting or using a fully developed application. Email, financial software, messaging applications, and connectivity software are all common examples of a SaaS implementation.
+   * least flexible, easiest to get up and running, requires the least amount of technical knowledge or expertise to fully employ.
+   * scenarios:
+     * Email and messaging.
+     * Business productivity applications.
+     * Finance and expense tracking.
+{% endtab %}
+
+{% tab title="Azure Architecture and Services" %}
+
+{% endtab %}
+{% endtabs %}
+
+###
 
 ## Azure
 

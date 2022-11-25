@@ -86,7 +86,7 @@ AWS -> Azure -> Google -> Alibaba -> IBM ****&#x20;
   * Expert
   * Specialty
 
-<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption><p><a href="https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FX45XM2JZMO3a8qkbpzrx%2Fuploads%2Flxo1fEKKILaFCKSRqlVd%2FAzure%20Certs%20Poster.pdf?alt=media&#x26;token=29b44255-585f-404b-a5db-d14493fef7bd">https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FX45XM2JZMO3a8qkbpzrx%2Fuploads%2Flxo1fEKKILaFCKSRqlVd%2FAzure%20Certs%20Poster.pdf?alt=media&#x26;token=29b44255-585f-404b-a5db-d14493fef7bd</a></p></figcaption></figure>
+<figure><img src=".gitbook/assets/image (2) (1).png" alt=""><figcaption><p><a href="https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FX45XM2JZMO3a8qkbpzrx%2Fuploads%2Flxo1fEKKILaFCKSRqlVd%2FAzure%20Certs%20Poster.pdf?alt=media&#x26;token=29b44255-585f-404b-a5db-d14493fef7bd">https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FX45XM2JZMO3a8qkbpzrx%2Fuploads%2Flxo1fEKKILaFCKSRqlVd%2FAzure%20Certs%20Poster.pdf?alt=media&#x26;token=29b44255-585f-404b-a5db-d14493fef7bd</a></p></figcaption></figure>
 
 * GCP
   * Foundation  -> <mark style="color:yellow;">**Cloud Digital Leader**</mark>
