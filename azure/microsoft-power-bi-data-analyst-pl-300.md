@@ -54,20 +54,45 @@ layout: editorial
     * _reports_ -> a collection of visualizations that appear together on one or more pages 动态
     * _dashboards_ -> a collection of visuals that you can share with others. Often, it's a selected group of visuals that provide quick insight into the data or story you're trying to present 静态
     * _tiles_ -> a single visualization on a dashboard
-  *
+    * _app_ -> is a collection of preset, ready-made visuals and reports that are shared with an entire organization.
+    * The _canvas_ -> the area in the center of the Power BI service -> show available sours of data: Microsoft Excel files, databases, or Microsoft Azure data, (software service ,SaaS)Salesforce, Facebook, Google Analytics, and more.
 {% endtab %}
 
-{% tab title="Second Tab" %}
+{% tab title="Prepare Data" %}
+* **GET DATA FROM FILES**
+  * flat file&#x20;
+    * \->&#x20;
+    * no hierarchies
+    *
 
+|           |                                                                                                                |                                                                                                                                                                                                                                                                                              |            |
+| --------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| flat file | <p>-- has only one data table </p><p>-- every row of data is in the same structure</p><p>-- no hierarchies</p> | <p>-- local -> data load into Power BI dataset / change on local file nor reflected</p><p>-- OneDrive for business -> synchronized</p><p>-- OneDrive - Personal -> synchronized</p><p>-- SharePoint - Team Sites -> synchronized / connect: specify a URL or connect to the root folder.</p> | .csv .xlsx |
+|           |                                                                                                                |                                                                                                                                                                                                                                                                                              |            |
+|           |                                                                                                                |                                                                                                                                                                                                                                                                                              |            |
+|           |                                                                                                                |                                                                                                                                                                                                                                                                                              |            |
+|           |                                                                                                                |                                                                                                                                                                                                                                                                                              |            |
+{% endtab %}
+
+{% tab title="Model Data" %}
+## #ModelData
+{% endtab %}
+
+{% tab title="Visualize Data" %}
+## #VisualizeData
+{% endtab %}
+
+{% tab title="Data Analysis" %}
+## #DataAnalysis
 {% endtab %}
 {% endtabs %}
 
 
 
-## #PerpareDataForAnalysis
+##
 
-## #ModelData
+##
 
-## #VisualizeData
+##
 
-## #DataAnalysis
+##

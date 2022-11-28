@@ -6,6 +6,7 @@
 
 * [Microsoft Power BI Data Analyst (PL-300)](azure/microsoft-power-bi-data-analyst-pl-300.md)
 * [Microsoft Azure Fundamentals (AZ-900)](azure/microsoft-azure-fundamentals-az-900.md)
+* [Azure Data Fundamentals(DP-900)](azure/azure-data-fundamentals-dp-900.md)
 
 ## Terms
 
