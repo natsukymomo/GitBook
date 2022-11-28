@@ -26,4 +26,6 @@
 | coherent       | 连贯的        |         |
 | resilient      | 有弹性的       |         |
 | rack           | 架子         |         |
+| outage         | 停运         |         |
+| sovereign      | 君主的        |         |
 |                |            |         |

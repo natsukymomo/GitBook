@@ -14,7 +14,7 @@ description: certification - fundamental
 
 {% tabs %}
 {% tab title="cloud concepts" %}
-### **#DescribeCloudComputing**
+### **#Describe Cloud Computing**
 
 ****
 
@@ -56,7 +56,7 @@ _Operational expenditure (**OpEx**)_: spending money on services or products ove
 
 
 
-### #DescribeBenefitsUsingCloud
+### #Describe Benefits of Using Cloud
 
 
 
@@ -101,11 +101,11 @@ _Operational expenditure (**OpEx**)_: spending money on services or products ove
 
 
 
-### #DescribeCloudServiceTypes
+### #Describe Cloud Service Types
 
 
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>shared responsibility model</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (2).png" alt=""><figcaption><p>shared responsibility model</p></figcaption></figure>
 
 1. &#x20;IaaS - Infrastructure as a Service 只租硬件
    * most flexible / maximum control of your cloud resources
@@ -131,7 +131,7 @@ _Operational expenditure (**OpEx**)_: spending money on services or products ove
 {% endtab %}
 
 {% tab title="Azure Architecture and Services" %}
-### #Azure
+### #Core Architectural Components of Azure
 
 1.  **AZURE**: cloud computing platform - IaaS/ PaaS/ SaaS
 
@@ -155,29 +155,127 @@ _Operational expenditure (**OpEx**)_: spending money on services or products ove
 
 
 
-    <figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption><p>your company might use a single Azure account for your business and separate subscriptions for development, marketing, and sales departments.</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption><p>your company might use a single Azure account for your business and separate subscriptions for development, marketing, and sales departments.</p></figcaption></figure>
 2. **PHYSICAL INFRASTRUCTURE**
-   1. datacenter - around the world - grouped into Azure Regions/Azure Availability Zones → resiliency and reliability
-   2. region: a geographical area on the planet contains at least one datacenter.&#x20;
+   1. Datacenter - around the world - grouped into Azure Regions/Azure Availability Zones → resiliency and reliability
+   2. Region: a geographical area on the planet contains at least one datacenter.&#x20;
       * Some services or virtual machine (VM) features are only available in certain regions, such as specific VM sizes or storage types. There are also some global Azure services that don't require you to select a particular region, such as Azure Active Directory, Azure Traffic Manager, and Azure DNS.
-   3.  Availability zones : physically separate datacenters within an Azure region.&#x20;
+   3.  Availability Zones : physically separate datacenters within an Azure region, connected through high-speed, private fiber-optic networks.&#x20;
 
        * isolation boundary → independent power, cooling, networking
-       * availability zones are connected through high-speed, private fiber-optic networks.
-       * minimum of 3 separate AZ in AZ-enabled regions -> resiliency
+       * <mark style="color:yellow;">run mission-critical applications and build high-availability</mark> into your application architecture -> replication
+       * primarily for <mark style="color:yellow;">VMs, managed disks, load balancers, and SQL databases</mark>.
+       * not all Azure Regions currently support availability zones
 
-       <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
-   4. You can use availability zones to run mission-critical applications and build high-availability into your application architecture by co-locating your compute, storage, networking, and data resources within an availability zone and replicating in other availability zones
-   5. Availability zones are primarily for VMs, managed disks, load balancers, and SQL databases. Azure services that support availability zones fall into three categories
-      * Zonal services: You pin the resource to a specific zone (for example, VMs, managed disks, IP addresses).
-      * Zone-redundant services: The platform replicates automatically across zones (for example, zone-redundant storage, SQL Database).
-      * Non-regional services: Services are always available from Azure geographies and are resilient to zone-wide outages as well as region-wide outages.
-   6. region pairs: Most Azure regions are paired with another region within the same geography (such as US, Europe, or Asia) at least 300 miles away
-      1. allows for the replication of resources across a geography that helps reduce the likelihood of interruptions because of events such as natural disasters, civil unrest, power outages, or physical network outages that affect an entire region.
-      2. advantage:
-3.
+       <figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>minimum of 3 separate AZ in AZ-enabled regions -> resiliency</p></figcaption></figure>
 
-&#x20;
+       * &#x20;Azure services that support availability zones fall into three categories
+         * Zonal services: You pin the resource to a specific zone (for example, VMs, managed disks, IP addresses).
+         * Zone-redundant services: The platform replicates automatically across zones (for example, zone-redundant storage, SQL Database).
+         * Non-regional services: Services are always available from Azure geographies and are resilient to zone-wide outages as well as region-wide outages.
+   4.  Region Pairs: Azure regions are paired with another regions within the same geography (such as US, Europe, or Asia) at least 300 miles away -> replication across geography
+
+       * advantage: quick restore / minimize downtime and risk for update / data reside same geography as its pairs(except for Brazil South) for tax- and law-enforcement jurisdiction purposes.
+
+       <figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption><p>Not all Azure services automatically replicate data or automatically fall back from a failed region to cross-replicate to another enabled region. In these scenarios, recovery and replication must be configured by the customer.</p></figcaption></figure>
+   5.  Sovereign Regions -> instances that isolated from the main instances -> for compliance and legal purpose
+
+       * US DoD Central, US Gov Virginia, US Gov Iowa and more: These regions are physical and logical network-isolated instances of Azure for U.S. government agencies and partners. These datacenters are operated by screened U.S. personnel and include additional compliance certifications.
+       * China East, China North, and more: These regions are available through a unique partnership between Microsoft and 21Vianet, whereby Microsoft doesn't directly maintain the datacenters.
+
+       &#x20;instances of Azure that are isolated from the main instance of Azure.
+3. **MANAGEMENT INFRASTRUCTURE**
+   1. resource -> basic building block of Azure.
+      1. Anything you create, provision, deploy, etc. is a resource.
+      2. Virtual Machines (VMs), virtual networks, databases, cognitive services, etc. are all considered resources within Azure.
+   2. resource group:
+      1. resource must be created into a resource group.
+      2. can only be in one resource group at a time.
+      3. Some resources may be moved between resource groups, no longer be associated with the former group.
+      4. can't be nested.
+      5. action to a resource group, that action will apply to all the resources within the resource group. eg. grant access.
+   3. subscription -> a unit of management, billing, and scale.
+      1. logically organize your resource groups and facilitate billing.
+      2. Azure Account -> Azure Active Directory(Azure AD) -> subscriptions -> provides you with authenticated and authorized access to Azure products and services. provision resources
+      3. multi-subscription account, configure different billing models and apply different access-management policies.
+      4. define boundaries around Azure products, services, and resources:
+         * **Billing boundary**:  how an Azure account is billed for using Azure. different billing requirements -> separate billing reports and invoices
+         * **Access control boundary**: Azure applies access-management policies at the subscription level, and you can create separate subscriptions to reflect different organizational structures. different departments -> different subscriptions&#x20;
+      5. you might choose to create additional subscriptions to separate:
+         * **Environments**: for development and testing, security, or to isolate data for compliance reasons -> resource access control occurs at the subscription level.
+         * **Organizational structures**: reflect different organizational structures -> manage and control access to the resources that users provision within each subscription.
+         * **Billing**: costs are first aggregated at the subscription level -> manage and track costs based on your needs -> one for production workloads and another subscription for your development and testing workloads.
+   4. Azure management group -> a level of scope above subscriptions.
+      1. efficiently manage access, policies, and compliance for those subscriptions.
+      2. **Create a hierarchy that applies a policy.** All subscriptions within a management group automatically inherit the conditions applied to the management group, the same way that resource groups inherit settings from subscriptions and resources inherit from resource groups.
+      3. **Provide user access to multiple subscriptions**. Enterprise-grade management at a large scale. Management groups can be nested.
+      4.  Important facts about management groups:
+
+          * 10,000 management groups can be supported in a single directory.
+          * A management group tree can support up to six levels of depth. This limit doesn't include the root level or the subscription level.
+          * Each management group and subscription can support only one parent.
+
+
+
+          <figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+4. Create Virtual Machine
+
+{% hint style="info" %}
+Azure Portal -> create a resource -> compute -> virtual Machine -> create
+{% endhint %}
+
+
+
+### #Azure Compute and Networking Services
+
+1. AVM
+   1. AVM → IaaS virtualized server
+      * Total control over the operating system (OS).
+      * Run custom software.
+      * Use custom hosting configurations.
+      * configure, update, and maintain the software that runs on the VM.
+      * create or use an already created image to rapidly provision VMs
+        * An image is a template used to create a VM and may already include an OS and other software, like development tools or web hosting environments.
+   2. Scale VMs -> group VMs together to provide high availability, scalability, and redundancy -> scale sets and availability sets.
+      1. VM scale sets&#x20;
+         * centrally manage, configure, and update a large number of VMs in minutes.
+         * the number of VM instances can automatically increase or decrease in response to demand, or you can set it to scale based on a defined schedule.&#x20;
+         * VMSS also automatically deploy a load balancer to make sure that your resources are being used efficiently.&#x20;
+         * compute, big data, and container workloads.
+      2. VM availability sets : **build a more resilient, highly available environment -->** designed to ensure that VMs stagger updates 错开更新 and have varied power and network connectivity 不同的电源和网络, preventing you from losing all your VMs with a single network or power failure.
+         * **Update domain**: The update domain groups VMs that can be rebooted at the same time. This allows you to apply updates while knowing that only one update domain grouping will be offline at a time. All of the machines in one update domain will be updated. An update group going through the update process is given a <mark style="color:yellow;">30-minute time to recover</mark> before maintenance on the next update domain starts.
+         * **Fault domain**: The fault domain groups your VMs by common power source and network switch. By default, an availability set will split your VMs across up to <mark style="color:yellow;">three fault domains</mark>. This helps protect against a physical power or networking failure by having VMs in different fault domains (thus being connected to different power and networking resources).
+         * no additional cost for configuring an availability set
+   3. when to use VM
+      * During testing and development
+      * When running applications in the cloud
+      * When extending your datacenter to the cloud
+      * During disaster recovery
+      * move to the cloud with VMs -> create image of pysical server and host
+   4. VM resources:
+      * Size (purpose, number of processor cores, and amount of RAM)
+      * Storage disks (hard disk drives, solid state drives, etc.)
+      * Networking (virtual network, public IP address, and port configuration)
+2. AVD&#x20;
+   1. AVD
+      * a desktop and application virtualization service that runs on the cloud
+      * a cloud-hosted version of Windows
+      * works across devices and operating systems (Win ->remote desktop connection), and works with apps that you can use to access remote desktops or most modern browsers
+      * provides centralized security management for users' desktops with Azure Active Directory. You can enable multifactor authentication to secure user sign-ins. You can also secure access to data by assigning granular role-based access controls (RBACs) to users.
+   2. enhance security
+      * confidential data being left on a personal device is reduced
+      * user sessions are isolated in both single and multi-session environments
+   3. Multi-session Win10 Win 11 deployment ->multiple concurrent users on a single VM / more consist
+3. Azure Containers
+   1.
+
+### #Azure Storage Services
+
+### #Azure Identity, Access, and Security
+
+
+
+
 
 ```bash
 #powerShell CLI
@@ -192,89 +290,29 @@ az interactive
 version
 upgrade
 exit
+
+#------VM--------#
+#create VM
+az vm create \
+  --resource-group learn-b4cabd12-4bf9-4343-8b12-a0838fe78ea7 \
+  --name my-vm \
+  --image UbuntuLTS \
+  --admin-username azureuser \
+  --generate-ssh-keys
+
+#use the Custom Script Extension to run a Bash script on your VM. 
+az vm extension set \
+  --resource-group learn-b4cabd12-4bf9-4343-8b12-a0838fe78ea7 \
+  --vm-name my-vm \
+  --name customScript \
+  --publisher Microsoft.Azure.Extensions \
+  --version 2.1 \
+  --settings '{"fileUris":["https://raw.githubusercontent.com/MicrosoftDocs/mslearn-welcome-to-azure/master/configure-nginx.sh"]}' \
+  --protected-settings '{"commandToExecute": "./configure-nginx.sh"}'
+  
+#------VM--------#
+
+
 ```
 {% endtab %}
 {% endtabs %}
-
-
-
-##
-
-1.
-   1.
-
-       1.
-          * If an extensive Azure outage occurs, one region out of every pair is prioritized to make sure at least one is restored as quickly as possible for applications hosted in that region pair.
-          * Planned Azure updates are rolled out to paired regions one region at a time to minimize downtime and risk of application outage.
-          * Data continues to reside within the same geography as its pair (except for Brazil South) for tax- and law-enforcement jurisdiction purposes.
-
-       ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9c29919b-8ef7-4cf7-8245-798d4267a669/Untitled.png)
-   2. **Sovereign Regions:** instances of Azure that are isolated from the main instance of Azure.
-      * US DoD Central, US Gov Virginia, US Gov Iowa and more: These regions are physical and logical network-isolated instances of Azure for U.S. government agencies and partners. These datacenters are operated by screened U.S. personnel and include additional compliance certifications.
-      * China East, China North, and more: These regions are available through a unique partnership between Microsoft and 21Vianet, whereby Microsoft doesn't directly maintain the datacenters.
-2. management infrastructure
-   1. resource:
-      1. basic building block of Azure.
-      2. Anything you create, provision, deploy, etc. is a resource.
-      3. Virtual Machines (VMs), virtual networks, databases, cognitive services, etc. are all considered resources within Azure.
-   2. resource group:
-      1. groupings of resources.
-      2. When you create a resource, you’re required to place it into a resource group.
-      3. a single resource can only be in one resource group at a time.
-      4. Some resources may be moved between resource groups, but when you move a resource to a new group, it will no longer be associated with the former group.
-      5. resource groups can't be nested
-      6. action to a resource group, that action will apply to all the resources within the resource group
-      7.
-   3.  subscription:
-
-       1. subscriptions are a unit of management, billing, and scale.
-       2. logically organize your resource groups and facilitate billing.
-       3. A subscription provides you with authenticated and authorized access to Azure products and services. provision resources
-       4. links to an Azure account, which is an identity in Azure Active Directory (Azure AD) or in a directory that Azure AD trusts.
-       5. An account can have multiple subscriptions,
-       6. configure different billing models and apply different access-management policies.
-       7. define boundraies
-          * **Billing boundary**: This subscription type determines how an Azure account is billed for using Azure. You can create multiple subscriptions for different types of billing requirements. Azure generates separate billing reports and invoices for each subscription so that you can organize and manage costs.
-          * **Access control boundary**: Azure applies access-management policies at the subscription level, and you can create separate subscriptions to reflect different organizational structures. An example is that within a business, you have different departments to which you apply distinct Azure subscription policies. This billing model allows you to manage and control access to the resources that users provision with specific subscriptions.
-       8. you might choose to create additional subscriptions to separate:
-          * **Environments**: You can choose to create subscriptions to set up separate environments for development and testing, security, or to isolate data for compliance reasons. This design is particularly useful because resource access control occurs at the subscription level.
-          * **Organizational structures**: You can create subscriptions to reflect different organizational structures. For example, you could limit one team to lower-cost resources, while allowing the IT department a full range. This design allows you to manage and control access to the resources that users provision within each subscription.
-          * **Billing**: You can create additional subscriptions for billing purposes. Because costs are first aggregated at the subscription level, you might want to create subscriptions to manage and track costs based on your needs. For instance, you might want to create one subscription for your production workloads and another subscription for your development and testing workloads.
-
-       ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3a4a565e-bf84-48d6-b706-5c515e365cdf/Untitled.png)
-   4. Azure managment group
-      1. Azure management groups provide a level of scope above subscriptions.
-      2. efficiently manage access, policies, and compliance for those subscriptions.
-      3. All subscriptions within a management group automatically inherit the conditions applied to the management group, the same way that resource groups inherit settings from subscriptions and resources inherit from resource groups.
-      4. enterprise-grade management at a large scale,
-      5. Management groups can be nested.
-      6. Important facts about management groups:
-         * 10,000 management groups can be supported in a single directory.
-         * A management group tree can support up to six levels of depth. This limit doesn't include the root level or the subscription level.
-         * Each management group and subscription can support only one parent.
-3. VM → IaaS virtual server
-   1. 什么时候选：
-      * Total control over the operating system (OS).
-      * The ability to run custom software.
-      * To use custom hosting configurations.
-   2. configure, update, and maintain the software that runs on the VM.
-   3. created image to rapidly provision VMs。 provision a VM in minutes when you select a preconfigured VM image
-      * An image is a template used to create a VM and may already include an OS and other software, like development tools or web hosting environments.
-   4. scale
-      1. single VMs for testing, development, or minor tasks.
-      2.  group VMs together to provide high availability, scalability, and redundancy. Azure can also manage the grouping of VMs for you with features such as scale sets and availability sets.
-
-          1. VM scale sets:
-             1. Azure can also manage the grouping of VMs for you with features such as scale sets and availability sets.
-             2. Scale sets allow you to centrally manage, configure, and update a large number of VMs in minutes
-          2. VM availability sets : **build a more resilient, highly available environment.**
-          3. **Update domain**: The update domain groups VMs that can be rebooted at the same time. This allows you to apply updates while knowing that only one update domain grouping will be offline at a time. All of the machines in one update domain will be updated. An update group going through the update process is given a 30-minute time to recover before maintenance on the next update domain starts.
-          4. **Fault domain**: The fault domain groups your VMs by common power source and network switch. By default, an availability set will split your VMs across up to three fault domains. This helps protect against a physical power or networking failure by having VMs in different fault domains (thus being connected to different power and networking resources).
-
-          c. when to use VM
-
-          * **During testing and development**. VMs provide a quick and easy way to create different OS and application configurations. Test and development personnel can then easily delete the VMs when they no longer need them.
-          * **When running applications in the cloud**. The ability to run certain applications in the public cloud as opposed to creating a traditional infrastructure to run them can provide substantial economic benefits. For example, an application might need to handle fluctuations in demand. Shutting down VMs when you don't need them or quickly starting them up to meet a sudden increase in demand means you pay only for the resources you use.
-          * **When extending your datacenter to the cloud**: An organization can extend the capabilities of its own on-premises network by creating a virtual network in Azure and adding VMs to that virtual network. Applications like SharePoint can then run on an Azure VM instead of running locally. This arrangement makes it easier or less expensive to deploy than in an on-premises environment.
-          * **During disaster recovery**: As with running certain types of applications in the cloud and extending an on-premises network to the cloud, you can get significant cost savings by using an IaaS-based approach to disaster recovery. If a primary datacenter fails, you can create VMs running on Azure to run your critical applications and then shut them down when the primary datacenter becomes operational again.
-4.

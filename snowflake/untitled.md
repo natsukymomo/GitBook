@@ -8,7 +8,7 @@ one product well integrated
 
 *   snow-gred
 
-    <figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 * cross-cloud business continuity -> replication -> consistency
 * marketplace region integration
 * tags follow replication -> security -> tag few columns and replicate
