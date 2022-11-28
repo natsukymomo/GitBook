@@ -16,8 +16,6 @@ description: certification - fundamental
 {% tab title="cloud concepts" %}
 ### **#Describe Cloud Computing**
 
-****
-
 * **COULD COMPUTING** -> delivery of <mark style="color:yellow;">computing services</mark> over the internet
   * _common IT infrastructure_ -> VM, storage, DB, and networking
   * _cloud services_ ->  IoT, ML, AI
@@ -102,8 +100,6 @@ _Operational expenditure (**OpEx**)_: spending money on services or products ove
 
 
 ### #Describe Cloud Service Types
-
-
 
 <figure><img src="../.gitbook/assets/image (2) (2).png" alt=""><figcaption><p>shared responsibility model</p></figcaption></figure>
 
