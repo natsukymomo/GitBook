@@ -13,7 +13,7 @@ description: certification - fundamental
 <mark style="color:yellow;">**Describe Azure management and governance 30-35%**</mark>
 
 {% tabs %}
-{% tab title="Cloud Concepts" %}
+{% tab title="cloud concepts" %}
 ### **#Describe Cloud Computing**
 
 * **COULD COMPUTING** -> delivery of <mark style="color:yellow;">computing services</mark> over the internet
@@ -126,7 +126,7 @@ _Operational expenditure (**OpEx**)_: spending money on services or products ove
      * Finance and expense tracking.
 {% endtab %}
 
-{% tab title="Core Architectural Components" %}
+{% tab title="Azure Architecture and Services" %}
 ### #Core Architectural Components of Azure
 
 1.  **AZURE**: cloud computing platform - IaaS/ PaaS/ SaaS
@@ -219,13 +219,13 @@ _Operational expenditure (**OpEx**)_: spending money on services or products ove
 {% hint style="info" %}
 Azure Portal -> create a resource -> compute -> virtual Machine -> create
 {% endhint %}
-{% endtab %}
 
-{% tab title="Compute & Networking" %}
+
+
 ### #Azure Compute and Networking Services
 
-1. AVM&#x20;
-   1. AVM → IaaS virtualized server (hardware level virtualization)
+1. AVM
+   1. AVM → IaaS virtualized server
       * Total control over the operating system (OS).
       * Run custom software.
       * Use custom hosting configurations.
@@ -262,178 +262,17 @@ Azure Portal -> create a resource -> compute -> virtual Machine -> create
       * confidential data being left on a personal device is reduced
       * user sessions are isolated in both single and multi-session environments
    3. Multi-session Win10 Win 11 deployment ->multiple concurrent users on a single VM / more consist
-3. Azure Containers  -> OS level virtualization -> protabilibly and performance
-   1. container -> virtualization environment -> run multiple containers on a single physical or virtual host ->&#x20;
-      * lightweight and designed to be created , scaled out, and stopped dynamically -> more agile
-      * don't manage the operating system for a container
-      * most popular container engines is Docker, supported by Azure
-   2. Azure Container Instances -> PaaS
-   3. Use ->microservice architecture -> break solutions into smaller, independent pieces
-      * For example, you might split a website into a container hosting your front end, another hosting your back end, and a third for storage. This split allows you to separate portions of your app into logical sections that can be maintained, scaled, or updated independently.
-4.  Azure Functions ->an event-driven, serverless compute option -> no VM/C
+3. Azure Containers
+   1.
 
-    benefits:
-
-    * only concerned about the code running your service and not about the underlying platform or infrastructure
-    * Functions are commonly used when you need to perform work in response to an event (often via a REST request), timer, or message from another Azure service, and when that work can be completed quickly, within seconds or less.
-    * Functions scale automatically based on demand, so they may be a good choice when demand is variable.
-    * Functions can be either stateless or stateful.&#x20;
-      * stateless (the default), restarted every time they respond to an event
-      * stateful (called Durable Functions), a context is passed through the function to track prior activity.
-    * Functions are a key component of serverless computing. They're also a general compute platform for running any type of code. This flexibility allows you to manage scaling, run on virtual networks, and even completely isolate the functions.
-5. Application Hosting Options -> VM or C
-   1. Azure App Service&#x20;
-      * enables you to build and host web apps, background jobs, mobile back-ends, and RESTful APIs in the programming language of your choice without managing infrastructure&#x20;
-      * automatic scaling and high availability
-      * supports Windows and Linux
-      * automated deployments from GitHub, Azure DevOps, or any Git repo to support a continuous deployment model.
-   2. App Service handles most of the infrastructure decisions you deal with in hosting web-accessible apps:
-      * Deployment and management are integrated into the platform.
-      * Endpoints can be secured.
-      * Sites can be scaled quickly to handle high traffic loads.
-      * The built-in load balancing and traffic manager provide high availability.
-   3. type:&#x20;
-      * **Web Apps** -> App Service includes full support for hosting web apps by using ASP.NET, ASP.NET Core, Java, Ruby, Node.js, PHP, or Python. You can choose either Windows or Linux as the host operating system.
-      * **API apps** -> you can build REST-based web APIs by using your choice of language and framework. You get full Swagger support and the ability to package and publish your API in Azure Marketplace. The produced apps can be consumed from any HTTP- or HTTPS-based client.
-      * **WebJobs** -> You can use the WebJobs feature to run a program (.exe, Java, PHP, Python, or Node.js) or script (.cmd, .bat, PowerShell, or Bash) in the same context as a web app, API app, or mobile app. They can be scheduled or run by a trigger. WebJobs are often used to run background tasks as part of your application logic.
-      *   **Mobile apps** -> quickly build a back end for iOS and Android apps. With just a few actions in the Azure portal, you can:
-
-          * Store mobile app data in a cloud-based SQL database.
-          * Authenticate customers against common social providers, such as MSA, Google, Twitter, and Facebook.
-          * Send push notifications.
-          * Execute custom back-end logic in C# or Node.js.
-
-          \-> there's SDK support for native iOS and Android, Xamarin, and React native apps.
-6. Azure Virtual Networking
-   1. Azure virtual networks and virtual subnets enable Azure resources, such as VMs, web apps, and databases, to communicate with each other, with users on the internet, and with your on-premises client computers.
-   2. Azure virtual networks provide the following key networking capabilities:
-      * Isolation and segmentation&#x20;
-        * allows you to create multiple isolated virtual networks.&#x20;
-        * When you set up a virtual network, you define a private IP address space by using either public or private IP address ranges. The IP range only exists within the virtual network and isn't internet routable. You can divide that IP address space into subnets and allocate part of the defined address space to each named subnet.
-        * For name resolution, you can use the name resolution service that's built into Azure. You also can configure the virtual network to use either an internal or an external DNS server.
-      * Internet communications -> enable incoming connections from the internet by assigning a public IP address to an Azure resource, or putting the resource behind a public load balancer
-      * Communicate between Azure resources
-        * Virtual networks can connect not only VMs but other Azure resources, such as the App Service Environment for Power Apps, Azure Kubernetes Service, and Azure virtual machine scale sets.
-        * Service endpoints can connect to other Azure resource types, such as Azure SQL databases and storage accounts. This approach enables you to link multiple Azure resources to virtual networks to improve security and provide optimal routing between resources.
-      *   Communicate with on-premises resources
-
-          you can create a network that spans both your local and cloud environments. There are three mechanisms for you to achieve this connectivity:
-
-          * **Point-to-site virtual private network** connections are from a computer outside your organization back into your corporate network. In this case, the client computer initiates an encrypted VPN connection to connect to the Azure virtual network.
-          * **Site-to-site virtual private networks** link your on-premises VPN device or gateway to the Azure VPN gateway in a virtual network. In effect, the devices in Azure can appear as being on the local network. The connection is encrypted and works over the internet.
-          * **Azure ExpressRoute** provides a dedicated private connectivity to Azure that doesn't travel over the internet. ExpressRoute is useful for environments where you need greater bandwidth and even higher levels of security.
-      * Route network traffic
-        * Route tables allow you to define rules about how traffic should be directed. You can create custom route tables that control how packets are routed between subnets.
-        * Border Gateway Protocol (BGP) works with Azure VPN gateways, Azure Route Server, or Azure ExpressRoute to propagate on-premises BGP routes to Azure virtual networks.
-      * Filter network traffic
-        * **Network security groups** are Azure resources that can contain multiple inbound and outbound security rules. You can define these rules to allow or block traffic, based on factors such as source and destination IP address, port, and protocol.
-        * **Network virtual appliances** are specialized VMs that can be compared to a hardened network appliance. A network virtual appliance carries out a particular network function, such as running a firewall or performing wide area network (WAN) optimization.
-      * Connect virtual networks
-        * You can link virtual networks together by using virtual network peering
-        * Peering allows two virtual networks to connect directly to each other.&#x20;
-        * Network traffic between peered networks is private, and travels on the Microsoft backbone network, never entering the public internet.&#x20;
-        * Peering enables resources in each virtual network to communicate with each other.&#x20;
-        * These virtual networks can be in separate regions, which allows you to create a global interconnected network through Azure.
-        * User-defined routes (UDR) allow you to control the routing tables between subnets within a virtual network or between virtual networks. This allows for greater control over network traffic flow.
-   3. supports both public and private endpoints to enable communication between external or internal resources with other internal resources.
-7. Azure Virtual Private Networks&#x20;
-   1. VPN
-      1. uses an encrypted tunnel within another network
-      2. VPNs are typically deployed to connect two or more trusted private networks to one another over an untrusted network (typically the public internet).&#x20;
-      3. Traffic is encrypted while traveling over the untrusted network to prevent eavesdropping or other attacks.&#x20;
-      4. VPNs can enable networks to safely and securely share sensitive information.
-   2. VPN gateway -> virtual network gateway.&#x20;
-      * Azure VPN Gateway instances are deployed in a dedicated subnet of the virtual network and enable the following connectivity:
-        * Connect on-premises datacenters to virtual networks through a **site-to-site** connection.
-        * Connect individual devices to virtual networks through a **point-to-site** connection.
-        * Connect virtual networks to other virtual networks through a **network-to-network** connection.
-      * only one VPN gateway in each virtual network, use one gateway to connect to multiple locations, which includes other virtual networks or on-premises datacenters.
-   3. VPN type ->how traffic to be encrypted is specifie
-      1. Policy-based VPN gateways specify statically the IP address of packets that should be encrypted through each tunnel. This type of device evaluates every data packet against those sets of IP addresses to choose the tunnel where that packet is going to be sent through.
-      2. In Route-based gateways
-         * IPSec tunnels are modeled as a network interface or virtual tunnel interface. IP routing (either static routes or dynamic routing protocols) decides which one of these tunnel interfaces to use when sending each packet. Route-based VPNs are the preferred connection method for on-premises devices. They're more resilient to topology changes such as the creation of new subnets.
-         * Use a route-based VPN gateway if you need any of the following types of connectivity:
-           * Connections between virtual networks
-           * Point-to-site connections
-           * Multisite connections
-           * Coexistence with an Azure ExpressRoute gateway
-   4. High-availability and fault tolerant VPN configuration -> maximize the resiliency
-      * active / standby: VPN gateways are deployed as two instances in an active/standby configuration. When planned maintenance or unplanned disruption affects the active instance, the standby instance automatically assumes responsibility for connections without any user intervention. Connections are interrupted during this failover, but they're typically restored within a few seconds for planned maintenance and within 90 seconds for unplanned disruptions.
-      * active / active: With the introduction of support for the BGP routing protocol, In this configuration, you assign a unique public IP address to each instance. You then create separate tunnels from the on-premises device to each IP address. You can extend the high availability by deploying an additional VPN device on-premises.
-      * ExpressRoute failover: configure a VPN gateway as a secure failover path for ExpressRoute connections**.** ExpressRoute circuits have resiliency built in. 仍会因physical problems断连, you can also provision a VPN gateway that uses the internet as an alternative method of connectivity
-      * Zone-Redundant gateways: In regions that support availability zones, VPN gateways and ExpressRoute gateways can be deployed in a zone-redundant configuration. resiliency, scalability, and higher availability. protecting your on-premises network connectivity to Azure from zone-level failures. These gateways require different gateway SKUs and use Standard public IP addresses instead of Basic public IP addresses.
-8. Azure ExpressRoute -> extend your on-premises networks into the Microsoft cloud over a private connection -> help connectivity provider -> establish connections to Microsoft cloud services, such as Microsoft Azure and Microsoft 365. connect offices, datacenters, or other facilities to the Microsoft cloud. Each location would have its own ExpressRoute circuit.
-   1. benefits using ExpressRoute as the connection service between Azure and on-premises networks.
-      * Connectivity to Microsoft cloud services across all regions in the geopolitical region.
-      * Global connectivity to Microsoft services across all regions with the ExpressRoute Global Reach.
-      * Dynamic routing between your network and Microsoft via Border Gateway Protocol (BGP).
-      * Built-in redundancy in every peering location for higher reliability.
-   2. connectivity:
-      * Microsoft Office 365
-      * Microsoft Dynamics 365
-      * Azure compute services, such as Azure Virtual Machines
-      * Azure cloud services, such as Azure Cosmos DB and Azure Storage
-9.
-10. Azure DNS
-{% endtab %}
-
-{% tab title="Storage Services" %}
 ### #Azure Storage Services
 
-1. **STORAGE ACCOUNTS**
-2. **STORAGE REDUNDANCY**
-3. **STORAGE SERVICES**
-4. **IDENTIFY AZURE DATA MIGRATION OPTIONS**
-5. **IDENTIFY AZURE FILE MOVEMENT OPTIONS**
-6. ****
-7.
-{% endtab %}
+### #Azure Identity, Access, and Security
 
-{% tab title="Identity, Access & Security" %}
-### #Azure Identity, Access and Secuirty
 
-1. **AZURE DIRECTORY SERVICES**
-2. **AZURE AUTHENTICATION METHODS**
-3. **AZURE EXTERNAL IDENTITIES**
-4. **AZURE CONDITIONAL  ACCESS**
-5. **AZURE ROLE-BASED ACCESS CONTROL**
-6. **ZERO TRUST MODEL**
-7. **DEFENSE-IN-DEPTH**
-8. **MICROSOFT DEFENDER FOR CLOUD**
-9. ****
-10.
-{% endtab %}
 
-{% tab title="Azure Management and Governance" %}
-### #Cost Management
 
-1. **FACTORS THAT CAN AFFECT COSTS IN AZURE**
-2. **COMPARE THE PRICING AND TOTAL COST OF OWNERSHIP CALCULATORS**
-3. **AZURE COST MANAGEMENT TOOL**
-4. **THE PURPOSE OF TAGS**
 
-### #Features and Tools for Governance and Compliance
-
-1. **AZURE BLUEPRINTS**
-2. **AZURE POLICY**
-3. **RESCOURCE LOCKS**
-4. **SERVICE TRUST PORTAL**
-
-### #Features and Tools for Managing and Deploying Azure Resources
-
-1. **TOOLS FOR INTERACTING WITH AZURE**
-2. **PURPOSE OF AZURE ARC**
-3. **AZURE RESOURCE MANAGER AND AZURE ARM TEMPLATES**
-
-### #Monitoring Tools
-
-1. **PURPOSE OF AZURE ADVISOR**
-2. **AZURE SERVICE HEALTH**
-3. **AZURE MONITOR**
-{% endtab %}
-{% endtabs %}
-
-{% code overflow="wrap" lineNumbers="true" %}
 ```bash
 #powerShell CLI
 pwsh
@@ -467,43 +306,9 @@ az vm extension set \
   --settings '{"fileUris":["https://raw.githubusercontent.com/MicrosoftDocs/mslearn-welcome-to-azure/master/configure-nginx.sh"]}' \
   --protected-settings '{"commandToExecute": "./configure-nginx.sh"}'
   
-#Configure network access
-#get ip address
-az vm list-ip-addresses
-#store the result as a Bash variable:
-IPADDRESS="$(az vm list-ip-addresses \
-  --resource-group learn-586543ae-5ede-4079-a9e3-00c534ce1240 \
-  --name my-vm \
-  --query "[].virtualMachine.network.publicIpAddresses[*].ipAddress" \
-  --output tsv)"
-#connect
-curl --connect-timeout 5 http://$IPADDRESS
-#list network security groups
-az network nsg list \
-  --resource-group learn-586543ae-5ede-4079-a9e3-00c534ce1240 \
-  --query '[].name' \
-  --output tsv
-#list the rules associated with the NSG named my-vmNSG:
-az network nsg rule list \
-  --resource-group learn-586543ae-5ede-4079-a9e3-00c534ce1240 \
-  --nsg-name my-vmNSG
-#use --query argument to retrieve only the name, priority, affected ports, and access (Allow or Deny) for each rule
-az network nsg rule list \
-  --resource-group learn-586543ae-5ede-4079-a9e3-00c534ce1240 \
-  --nsg-name my-vmNSG \
-  --query '[].{Name:name, Priority:priority, Port:destinationPortRange, Access:access}' \
-  --output table
-# create network security rule port 80
-az network nsg rule create \
-  --resource-group learn-586543ae-5ede-4079-a9e3-00c534ce1240 \
-  --nsg-name my-vmNSG \
-  --name allow-http \
-  --protocol tcp \
-  --priority 100 \
-  --destination-port-range 80 \
-  --access Allow 
+#------VM--------#
 
 
 ```
-{% endcode %}
-
+{% endtab %}
+{% endtabs %}

@@ -60,18 +60,20 @@ layout: editorial
 
 {% tab title="Prepare Data" %}
 * **GET DATA FROM FILES**
-  * flat file&#x20;
-    * \->&#x20;
-    * no hierarchies
-    *
+* **source**
 
-|           |                                                                                                                |                                                                                                                                                                                                                                                                                              |            |
-| --------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| flat file | <p>-- has only one data table </p><p>-- every row of data is in the same structure</p><p>-- no hierarchies</p> | <p>-- local -> data load into Power BI dataset / change on local file nor reflected</p><p>-- OneDrive for business -> synchronized</p><p>-- OneDrive - Personal -> synchronized</p><p>-- SharePoint - Team Sites -> synchronized / connect: specify a URL or connect to the root folder.</p> | .csv .xlsx |
-|           |                                                                                                                |                                                                                                                                                                                                                                                                                              |            |
-|           |                                                                                                                |                                                                                                                                                                                                                                                                                              |            |
-|           |                                                                                                                |                                                                                                                                                                                                                                                                                              |            |
-|           |                                                                                                                |                                                                                                                                                                                                                                                                                              |            |
+|                         |                                                   |                                                                                                                                                                                                                                                                                                                                                                                                               |
+| ----------------------- | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| flat file (.csv .xlsx)  | excel                                             | <p>source:</p><p>-- local -> data load into Power BI dataset / change on local file nor reflected</p><p>-- OneDrive for business -> synchronized</p><p>-- OneDrive - Personal -> synchronized</p><p>-- SharePoint - Team Sites -> synchronized / connect: specify a URL or connect to the root folder.</p>                                                                                                    |
+| RDB                     | SQL Server                                        | <p>import: </p><p>-- import -> login windows / database / Microsoft account -> select data load / transform </p><p>-- advanced option -> SQL statement</p>                                                                                                                                                                                                                                                    |
+| NoSQL DB                | more -> Azure Cosmos DB                           | <p>transform: </p><p>-- login -> select data -> edit </p><p>--select the <strong>Expander</strong> button to the right side of the <strong>Column1</strong> header, which will display the context menu with a list of fields. Select the fields that you want to load into Power BI Desktop, clear the <strong>Use original column name as prefix</strong> checkbox, and then select <strong>OK</strong></p> |
+| online services         | more -> online services -> SharePoint Online List | you'll be asked for your SharePoint URL                                                                                                                                                                                                                                                                                                                                                                       |
+| Azure Analysis Services |                                                   |                                                                                                                                                                                                                                                                                                                                                                                                               |
+
+* **storage mode**
+  * **import ->** create a local Power BI copy of your datasets from your data source / Data refreshes can be scheduled or on-demand
+  * **DirectQuery ->** do not save local copies of your data / your data will not be cached / query the specific tables that you will need by using native Power BI queries / create direct connection to data source / always viewing most up-to-date data / use for security and large dataset
+  * **Dual ->** you can identify some data to be directly imported and other data that must be queried / efficiency
 {% endtab %}
 
 {% tab title="Model Data" %}
@@ -86,13 +88,5 @@ layout: editorial
 ## #DataAnalysis
 {% endtab %}
 {% endtabs %}
-
-
-
-##
-
-##
-
-##
 
 ##
