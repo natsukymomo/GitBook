@@ -110,7 +110,6 @@ layout: editorial
       * solution: Power Query -> Transform Data -> highlight the query creating error -> Query Settings -> Source -> change file location
     * <mark style="color:red;">Data type errors</mark>
       * SELECT CAST(CustomerPostalCode as varchar(10)) FROM Sales.Customers
-    *
 {% endtab %}
 
 {% tab title="Model Data" %}
