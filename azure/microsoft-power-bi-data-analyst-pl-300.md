@@ -59,21 +59,58 @@ layout: editorial
 {% endtab %}
 
 {% tab title="Prepare Data" %}
-* **GET DATA FROM FILES**
-* **source**
+* **GET DATA  FROM**
 
-|                         |                                                   |                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ----------------------- | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| flat file (.csv .xlsx)  | excel                                             | <p>source:</p><p>-- local -> data load into Power BI dataset / change on local file nor reflected</p><p>-- OneDrive for business -> synchronized</p><p>-- OneDrive - Personal -> synchronized</p><p>-- SharePoint - Team Sites -> synchronized / connect: specify a URL or connect to the root folder.</p>                                                                                                    |
-| RDB                     | SQL Server                                        | <p>import: </p><p>-- import -> login windows / database / Microsoft account -> select data load / transform </p><p>-- advanced option -> SQL statement</p>                                                                                                                                                                                                                                                    |
-| NoSQL DB                | more -> Azure Cosmos DB                           | <p>transform: </p><p>-- login -> select data -> edit </p><p>--select the <strong>Expander</strong> button to the right side of the <strong>Column1</strong> header, which will display the context menu with a list of fields. Select the fields that you want to load into Power BI Desktop, clear the <strong>Use original column name as prefix</strong> checkbox, and then select <strong>OK</strong></p> |
-| online services         | more -> online services -> SharePoint Online List | you'll be asked for your SharePoint URL                                                                                                                                                                                                                                                                                                                                                                       |
-| Azure Analysis Services |                                                   |                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Source                  | Menu Option                                                                                                                                                                                                                                                                                                                                                                      | Comments                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| flat file (.csv .xlsx)  | excel                                                                                                                                                                                                                                                                                                                                                                            | <p>source:</p><p>-- local -> data load into Power BI dataset / change on local file nor reflected</p><p>-- OneDrive for business -> synchronized</p><p>-- OneDrive - Personal -> synchronized</p><p>-- SharePoint - Team Sites -> synchronized / connect: specify a URL or connect to the root folder.</p>                                                                                                                                                                                                                                        |
+| RDB                     | SQL Server                                                                                                                                                                                                                                                                                                                                                                       | <p>import: </p><p>-- import -> login windows / database / Microsoft account -> select data load / transform </p><p>-- advanced option -> SQL statement</p>                                                                                                                                                                                                                                                                                                                                                                                        |
+| NoSQL DB                | more -> Azure Cosmos DB                                                                                                                                                                                                                                                                                                                                                          | <p>transform: </p><p>-- login -> select data -> edit </p><p>--select the <strong>Expander</strong> button to the right side of the <strong>Column1</strong> header, which will display the context menu with a list of fields. Select the fields that you want to load into Power BI Desktop, clear the <strong>Use original column name as prefix</strong> checkbox, and then select <strong>OK</strong></p>                                                                                                                                     |
+| online services         | more -> online services -> SharePoint Online List                                                                                                                                                                                                                                                                                                                                | you'll be asked for your SharePoint URL                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Azure Analysis Services | <p>connection step same as SQL server</p><p>-- Authenticate to the server.</p><p>-- Pick the cube you want to use.</p><p>-- Select which tables you need. </p><p></p><p>-- Import </p><p>-- Connect to Live :helps you keep the data and DAX calculations in their original location, without having to import them all into Power BI / fast refresh schedule by the service</p> | <p>DEFINITION:</p><p>-- ingest data from multiple data sources</p><p>-- build relationships between the data</p><p>-- create calculations on the data </p><p>-- similar to data modeling and storage in Power BI</p><p>-- calculations are built using data analysis expressions (DAX). </p><p></p><p>Differences between Azure Analysis Services cubes and SQL Server: </p><p>--Analysis Services cubes have calculations already in the cube</p><p>-- you don’t need an entire table, you can query the data directly by MDX, DAX not T-SQL</p> |
 
-* **storage mode**
+
+
+* **STORAGE MODE**
   * **import ->** create a local Power BI copy of your datasets from your data source / Data refreshes can be scheduled or on-demand
   * **DirectQuery ->** do not save local copies of your data / your data will not be cached / query the specific tables that you will need by using native Power BI queries / create direct connection to data source / always viewing most up-to-date data / use for security and large dataset
   * **Dual ->** you can identify some data to be directly imported and other data that must be queried / efficiency
+* **OPTIMIZE PERFORMANCE in Power Query**
+  * performance tuning techniques depends on the source
+  * SQL Server performance tuning techniques: index creation, hardware upgrades, execution plan tuning, and data compression
+  * Power Query:
+    * _Query folding 折叠_ is the process by which the transformations and edits that you make in Power Query Editor are simultaneously tracked as <mark style="color:yellow;">native queries, or simple</mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">**Select**</mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">SQL statements</mark>, while you are actively making transformations -> to ensure that these transformations can take place in the original data source server and do not overwhelm Power BI computing resources.
+      * benefits:
+        * more efficiency in data refreshes and incremental refreshes
+        * Automatic compatibility兼容 with DirectQuery and Dual storage modes.
+      * cannot:
+        * Adding an index column
+        * Merging and appending columns of different tables with two different sources
+        * Changing the data type of a column
+      * can:
+        * **Select** SQL statement, which includes operators and clauses such as GROUP BY, SORT BY, WHERE, UNION ALL, and JOIN
+      * View Native Query
+    * Query Diagnostics: determine what bottlenecks (if any) exist while loading and transforming your data, refreshing your data in Power Query, running SQL statements in Query Editor, and so on.
+      * Tools -> Start Diagnostics
+  * Process as much data as possible in the original data source
+  * Use native SQL queries
+  * Separate date and time, if bound together
+* **RESOVLE DATA IMPORT ERRORS**
+  * when
+    * import from numerous  data sources
+    * each data source might have dozens of different error messages
+    * hard drives, networks, software services, and OS
+    * data can often not comply 遵守 with any specific schema
+  * errors:
+    * <mark style="color:red;">query timeout expired</mark> -> concurrency error -> DataSource.Error.ODBC\[08001] timeout expired
+    * <mark style="color:red;">Power BI Query Error</mark>: Timeout expired -> pull too much data according to your org policies
+    * <mark style="color:red;">You couldn't find any data formatted as a table</mark>&#x20;
+      * solution: open excel -> Ctrl-T -> first row become header
+    * <mark style="color:red;">Count not find file</mark> -> file moving locations or the permission changed&#x20;
+      * solution: Power Query -> Transform Data -> highlight the query creating error -> Query Settings -> Source -> change file location
+    * <mark style="color:red;">Data type errors</mark>
+      * SELECT CAST(CustomerPostalCode as varchar(10)) FROM Sales.Customers
+    *
 {% endtab %}
 
 {% tab title="Model Data" %}
@@ -88,5 +125,3 @@ layout: editorial
 ## #DataAnalysis
 {% endtab %}
 {% endtabs %}
-
-##
